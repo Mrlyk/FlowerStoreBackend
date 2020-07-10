@@ -1,8 +1,11 @@
 node_modules/
-dist
+dist/
 
 
 # Editor directories and files
-.idea
-.vscode
+.idea/
+.vscode/
 
+# 特殊文件
+*.http
+config/dbconfig.js
