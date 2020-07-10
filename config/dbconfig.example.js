@@ -1,3 +1,4 @@
+// 数据库配置模板
 module.exports = {
   config: {
     host: '数据库地址',
