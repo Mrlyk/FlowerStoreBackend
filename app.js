@@ -3,14 +3,12 @@ var express = require('express')
 var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
+const routes = require('./routes')
 
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
+// var indexRouter = require('./routes/index')
+// var usersRouter = require('./routes/users')
 
 var app = express()
-
-app.listen('3000')
-console.log(`项目运行在 http://localhost:3000`)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -22,8 +20,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter)
-app.use('/users', usersRouter)
+// app.use('/', indexRouter)
+// app.use('/users', usersRouter)
+routes(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -41,4 +40,6 @@ app.use(function (err, req, res, next) {
   res.render('error')
 })
 
+app.listen('3000')
+console.log(`项目运行在 http://localhost:3000`)
 // module.exports = app
